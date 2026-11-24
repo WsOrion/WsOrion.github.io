@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nova — цифровое творчество. Дизайн, разработка, инновации.">
-    <title>Nova — Цифровое творчество</title>
+    <meta name="description" content="WsOrion — портфолио и цифровое творчество. Дизайн, разработка, инновации.">
+    <meta name="author" content="WsOrion">
+    <title>WsOrion — Цифровое творчество</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -25,6 +26,44 @@
             align-items: center;
             justify-content: center;
             position: relative;
+        }
+
+        /* Логотип / шапка */
+        .brand {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 10;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .brand-logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #00e5ff, #7000ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 229, 255, 0.4);
+        }
+
+        .brand-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+            background: linear-gradient(90deg, #00e5ff, #ff00cc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .blob {
@@ -48,7 +87,7 @@
         .container {
             max-width: 1200px;
             width: 100%;
-            padding: 40px 20px;
+            padding: 120px 20px 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -74,9 +113,23 @@
             box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.5);
         }
 
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: rgba(0, 229, 255, 0.1);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            color: #00e5ff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+
         h1 {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
+            font-weight: 700;
             line-height: 1.1;
             margin-bottom: 20px;
             background: linear-gradient(90deg, #00e5ff, #ff00cc, #7000ff);
@@ -120,6 +173,9 @@
             cursor: pointer;
             border: none;
             letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .btn-primary {
@@ -166,40 +222,100 @@
         .feature-card h3 { font-size: 1.1rem; margin-bottom: 10px; font-weight: 600; }
         .feature-card p { font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); line-height: 1.5; }
 
+        /* Контакты */
+        .socials {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(0, 229, 255, 0.1);
+            border-color: rgba(0, 229, 255, 0.4);
+            color: #00e5ff;
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            margin-top: 60px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.4);
+            text-align: center;
+            z-index: 1;
+        }
+
+        .footer strong {
+            color: #00e5ff;
+            font-weight: 600;
+        }
+
         .fade-in { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.8s ease forwards; }
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.4s; }
         .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
 
         @keyframes fadeInUp {
             to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 600px) {
+            .brand { top: 20px; left: 20px; }
+            .brand-logo { width: 38px; height: 38px; font-size: 1rem; }
+            .brand-name { font-size: 1.1rem; }
+            .container { padding-top: 100px; }
             .glass-card { padding: 40px 20px; }
             .button-group { flex-direction: column; width: 100%; }
-            .btn { width: 100%; text-align: center; }
+            .btn { width: 100%; justify-content: center; }
         }
     </style>
 </head>
 <body>
+    <!-- Логотип -->
+    <div class="brand">
+        <div class="brand-logo">W</div>
+        <div class="brand-name">WsOrion</div>
+    </div>
+
+    <!-- Фоновые круги -->
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
     <div class="blob blob-3"></div>
 
     <div class="container">
+        <!-- Главная карточка -->
         <div class="glass-card fade-in">
+            <span class="badge">✦ WsOrion</span>
             <h1>Создаём будущее</h1>
             <p class="subtitle">
-                Мы превращаем смелые идеи в цифровые шедевры. Дизайн, разработка и инновации — всё в одном месте.
+                Привет! Я <strong>WsOrion</strong> — превращаю смелые идеи в цифровые шедевры. 
+                Дизайн, разработка и инновации — всё в одном месте.
             </p>
             <div class="button-group">
-                <a href="#" class="btn btn-primary">Начать проект</a>
-                <a href="#" class="btn btn-secondary">Узнать больше</a>
+                <a href="#features" class="btn btn-primary">Начать проект →</a>
+                <a href="#contact" class="btn btn-secondary">Связаться</a>
             </div>
         </div>
 
-        <div class="features">
+        <!-- Преимущества -->
+        <div class="features" id="features">
             <div class="feature-card fade-in delay-1">
                 <span class="feature-icon">🎨</span>
                 <h3>Креативный дизайн</h3>
@@ -216,10 +332,27 @@
                 <p>Решения, которые растут вместе с вашим бизнесом.</p>
             </div>
         </div>
+
+        <!-- Контакты -->
+        <div class="socials fade-in delay-4" id="contact">
+            <a href="https://github.com/WsOrion" target="_blank" rel="noopener" class="social-link">
+                <span>💻</span> GitHub
+            </a>
+            <a href="https://t.me/WsOrion" target="_blank" rel="noopener" class="social-link">
+                <span>✈️</span> Telegram
+            </a>
+            <a href="mailto:wsorion@example.com" class="social-link">
+                <span>✉️</span> Email
+            </a>
+        </div>
+
+        <div class="footer">
+            © 2025 <strong>WsOrion</strong> · Сделано с ❤️
+        </div>
     </div>
 
     <script>
-        // Параллакс только на устройствах с мышью (не мешает мобильным)
+        // Параллакс только для устройств с мышью
         if (window.matchMedia('(pointer: fine)').matches) {
             document.addEventListener('mousemove', (e) => {
                 const blobs = document.querySelectorAll('.blob');
@@ -231,6 +364,15 @@
                 });
             });
         }
+
+        // Плавная прокрутка к якорям
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
     </script>
 </body>
 </html>
